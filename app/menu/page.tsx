@@ -3,13 +3,12 @@ import { createClient } from "@/lib/supabase/server";
 export default async function MenuPage() {
   const supabase = await createClient();
 
-  const { data: products, error } = await supabase
-    .from("products")
-    .select("*")
-    .eq("is_available", true)
-    .order("category")
-    .order("display_order")
-    .order("name");
+ const { data: products, error } = await supabase
+  .from("products")
+  .select("*");
+
+console.log("Products:", products?.length);
+console.log("Error:", error);
 
   if (error) {
     return (
