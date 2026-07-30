@@ -24,17 +24,18 @@ export default async function MenuPage() {
       </div>
     );
   }
-
-  const categories = [
+const categories = [
   "Ice Cream",
   "Belgium Waffles",
+  "Chocolate Bowls",
   "Sundaes",
-  "Chocolate Bowl Cake",
   "Thick Shakes",
   "Cream Buns",
   "Sugar Free",
 ];
-
+console.log(
+  [...new Set(products?.map((p) => p.category))]
+);
   return (
     <main className="bg-pink-50 min-h-screen">
       <div className="mx-auto max-w-7xl px-6 py-16">
