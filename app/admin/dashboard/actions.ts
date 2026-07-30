@@ -7,16 +7,30 @@ export async function updateOrderStatus(
   orderId: string,
   status: string
 ) {
+  console.log("Updating:", orderId, status);
+
   const supabase = await createClient();
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from("orders")
     .update({ status })
-    .eq("id", orderId);
+    .eq("id", orderId)
+    .select();
+
+  console.log("Updated Data:", data);
+  console.log("Supabase Error:", error);
 
   if (error) {
-    throw new Error(error.message);
+    return {
+      success: false,
+      message: error.message,
+    };
   }
 
-  revalidatePath("/admin/dashboard");
+  revalidatePath("/admin/dashboard", "page");
+
+  return {
+    success: true,
+    message: "Updated successfully",
+  };
 }

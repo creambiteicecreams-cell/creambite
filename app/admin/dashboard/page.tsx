@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import OrderStatusButtons from "./OrderStatusButtons";
+import NewOrderNotifier from "./NewOrderNotifier";
+import OrderRealtimeListener from "./OrderRealtimeListener";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -20,7 +22,10 @@ export default async function DashboardPage() {
 
   return (
     <main className="min-h-screen bg-gray-100 p-8">
+          <NewOrderNotifier />
+        <OrderRealtimeListener />
       <div className="mx-auto max-w-7xl">
+      
 
         {/* Header */}
 
@@ -97,6 +102,9 @@ export default async function DashboardPage() {
                     <th className="px-6 py-4 text-left">
                       Date
                     </th>
+                    <th className="px-6 py-4 text-left">
+  Actions
+</th>
 
                   </tr>
 
@@ -142,6 +150,16 @@ export default async function DashboardPage() {
                       <td className="px-6 py-4">
                         {new Date(order.created_at).toLocaleString("en-IN")}
                       </td>
+                      <td className="px-6 py-4">
+  <a
+href={`/receipt/${order.id}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition"
+  >
+    🖨️ Print Receipt
+  </a>
+</td>
 
                     </tr>
 

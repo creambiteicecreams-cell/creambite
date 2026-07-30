@@ -212,4 +212,124 @@ export const products: Product[] = [
       { label: "Double Scoop", value: 135 },
     ],
   },
+    // ===========================
+  // Belgium Waffles
+  // ===========================
+
+  {
+    id: 14,
+    category: "Belgium Waffles",
+    name: "Chocolate Overload",
+    description: "Loaded with rich chocolate sauce and premium toppings.",
+    image: "/images/menu/waffles/chocolate-overload.png",
+    bestseller: true,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 155 },
+    ],
+  },
+
+  {
+    id: 15,
+    category: "Belgium Waffles",
+    name: "KitKat Waffle",
+    description: "Crispy Belgian waffle topped with KitKat and chocolate.",
+    image: "/images/menu/waffles/kitkat.png",
+    bestseller: true,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 155 },
+    ],
+  },
+
+  {
+    id: 16,
+    category: "Belgium Waffles",
+    name: "Nutty Delight",
+    description: "Loaded with crunchy roasted nuts and chocolate drizzle.",
+    image: "/images/menu/waffles/nutty-delight.png",
+    bestseller: true,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 155 },
+    ],
+  },
+
+  {
+    id: 17,
+    category: "Belgium Waffles",
+    name: "Hazelnut Chocolate Waffle",
+    description: "Belgian waffle with rich hazelnut chocolate topping.",
+    image: "/images/menu/waffles/hazelnut-chocolate.png",
+    bestseller: true,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 155 },
+    ],
+  },
+
+  {
+    id: 18,
+    category: "Belgium Waffles",
+    name: "Strawberry Dream",
+    description: "Fresh strawberry topping with creamy Belgian waffle.",
+    image: "/images/menu/waffles/strawberry-waffle.png",
+    bestseller: false,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 145 },
+    ],
+  },
+
+  {
+    id: 19,
+    category: "Belgium Waffles",
+    name: "Oreo Crush",
+    description: "Belgian waffle loaded with Oreo crumbs and chocolate.",
+    image: "/images/menu/waffles/oreo-crush.png",
+    bestseller: true,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 145 },
+    ],
+  },
+
+  {
+    id: 20,
+    category: "Belgium Waffles",
+    name: "Choco Peanut",
+    description: "Chocolate waffle topped with crunchy peanuts.",
+    image: "/images/menu/waffles/caramel.png",
+    bestseller: false,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 145 },
+    ],
+  },
+
+  {
+    id: 21,
+    category: "Belgium Waffles",
+    name: "Triple Chocolate",
+    description: "Three layers of rich chocolate indulgence.",
+    image: "/images/menu/waffles/triple-chocolate.png",
+    bestseller: true,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 145 },
+    ],
+  },
+
+  {
+    id: 22,
+    category: "Belgium Waffles",
+    name: "Creamy Delight Waffle",
+    description: "Creamy Belgian waffle with delicious sweet toppings.",
+    image: "/images/menu/waffles/creamy-delight.png",
+    bestseller: false,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 145 },
+    ],
+  },
 ];

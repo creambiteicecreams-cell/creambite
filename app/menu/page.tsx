@@ -26,14 +26,14 @@ export default async function MenuPage() {
   }
 
   const categories = [
-    "Ice Cream",
-    "Sundaes",
-    "Waffles",
-    "Chocolate Bowls",
-    "Thick Shakes",
-    "Cream Buns",
-    "Sugar Free",
-  ];
+  "Ice Cream",
+  "Belgium Waffles",
+  "Sundaes",
+  "Chocolate Bowl Cake",
+  "Thick Shakes",
+  "Cream Buns",
+  "Sugar Free",
+];
 
   return (
     <main className="bg-pink-50 min-h-screen">

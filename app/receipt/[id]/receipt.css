@@ -1,0 +1,39 @@
+@page {
+  size: 58mm auto;
+  margin: 0;
+}
+
+@media print {
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: white !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .receipt-print,
+  .receipt-print * {
+    visibility: visible;
+  }
+
+  .receipt-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm;
+    padding: 4mm;
+    margin: 0;
+    background: white;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  hr {
+    border-top: 1px dashed #000;
+  }
+}
