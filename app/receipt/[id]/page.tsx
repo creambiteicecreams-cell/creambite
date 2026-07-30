@@ -2,10 +2,18 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import AutoPrint from "./AutoPrint";
 import "./receipt.css";
+
 type Props = {
   params: Promise<{
     id: string;
   }>;
+};
+
+type OrderItem = {
+  id: string;
+  name: string;
+  quantity: number;
+  price: number;
 };
 
 export default async function ReceiptPage({ params }: Props) {
@@ -23,7 +31,9 @@ export default async function ReceiptPage({ params }: Props) {
     notFound();
   }
 
-  const items = Array.isArray(order.items) ? order.items : [];
+  const items: OrderItem[] = Array.isArray(order.items)
+    ? (order.items as OrderItem[])
+    : [];
 
   const formattedDate = new Date(order.created_at).toLocaleString("en-IN", {
     dateStyle: "medium",
@@ -32,8 +42,9 @@ export default async function ReceiptPage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-gray-100 flex justify-center p-8">
-        <AutoPrint />
-<div className="receipt-print w-[58mm] bg-white p-3 text-[13px]">
+      <AutoPrint />
+
+      <div className="receipt-print w-[58mm] bg-white p-3 text-[13px]">
         <h1 className="text-center text-2xl font-bold">
           CREAM BITE
         </h1>
@@ -74,25 +85,25 @@ export default async function ReceiptPage({ params }: Props) {
 
         <div className="space-y-2">
           {items.map((item) => (
-  <div
-    key={item.id}
-    className="mb-2"
-  >
-    <div className="font-medium">
-      {item.name}
-    </div>
+            <div
+              key={item.id}
+              className="mb-2"
+            >
+              <div className="font-medium">
+                {item.name}
+              </div>
 
-    <div className="flex justify-between text-[13px]">
-      <span>
-        {item.quantity} × ₹{item.price}
-      </span>
+              <div className="flex justify-between text-[13px]">
+                <span>
+                  {item.quantity} × ₹{item.price}
+                </span>
 
-      <span>
-        ₹{item.quantity * item.price}
-      </span>
-    </div>
-  </div>
-))}
+                <span>
+                  ₹{item.quantity * item.price}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
 
         <hr className="my-3 border-dashed" />
@@ -122,18 +133,15 @@ export default async function ReceiptPage({ params }: Props) {
         <hr className="my-3 border-dashed" />
 
         <p>
-          <strong>Coupon:</strong>{" "}
-          {order.coupon_code || "-"}
+          <strong>Coupon:</strong> {order.coupon_code || "-"}
         </p>
 
         <p>
-          <strong>Notes:</strong>{" "}
-          {order.notes || "-"}
+          <strong>Notes:</strong> {order.notes || "-"}
         </p>
 
         <p>
-          <strong>Status:</strong>{" "}
-          {order.status}
+          <strong>Status:</strong> {order.status}
         </p>
 
         <hr className="my-3 border-dashed" />
@@ -149,7 +157,6 @@ export default async function ReceiptPage({ params }: Props) {
         <p className="mt-2 text-center text-xs">
           www.creambite.in
         </p>
-
       </div>
     </main>
   );
