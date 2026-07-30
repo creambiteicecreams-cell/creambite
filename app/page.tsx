@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Specials from "./components/Specials";
 import SugarFree from "./components/SugarFree";
 import WhyChoose from "./components/WhyChoose";
+import MenuSection from "./components/MenuSection";
 import Gallery from "./components/Gallery";
 import VisitShop from "./components/VisitShop";
 import Map from "./components/Map";
@@ -63,6 +64,9 @@ export default function Home() {
         <section id="reviews">
           <Reviews />
         </section>
+        <section id="menu">
+  <MenuSection />
+</section>
 
         {/* Contact */}
         <section id="contact">

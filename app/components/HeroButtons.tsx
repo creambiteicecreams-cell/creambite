@@ -7,13 +7,13 @@ export default function HeroButtons() {
     <div className="flex flex-wrap items-center gap-3">
 
       {/* Explore Menu */}
-      <a
-        href="#menu"
-        className="flex items-center gap-2 rounded-full bg-pink-600 px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-pink-700"
-      >
-        <ShoppingCart size={18} />
-        Explore Menu
-      </a>
+     <a
+  href="/menu"
+  className="flex items-center gap-2 rounded-full bg-pink-600 px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-pink-700"
+>
+  <ShoppingCart size={18} />
+  Explore Menu
+</a>
 
       {/* WhatsApp */}
       <a
