@@ -18,52 +18,31 @@ export default async function MenuPage() {
           Failed to load menu
         </h1>
 
-        <p className="mt-2 text-gray-600">
-          {error.message}
-        </p>
+        <p className="mt-2 text-gray-600">{error.message}</p>
       </div>
     );
   }
-const categories = [
-  "Ice Cream",
-  "Belgium Waffles",
-  "Chocolate Bowls",
-  "Sundaes",
-  "Thick Shakes",
-  "Cream Buns",
-  "Sugar Free",
-];
-console.log(
-  [...new Set(products?.map((p) => p.category))]
-);
+
+  const categories = [...new Set(products?.map((p) => p.category) || [])];
+
   return (
-    <main className="bg-pink-50 min-h-screen">
+    <main className="min-h-screen bg-pink-50">
       <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="mb-16 text-center">
+          <h1 className="text-5xl font-bold text-pink-600">Our Menu</h1>
 
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-pink-600">
-            Our Menu
-          </h1>
-
-          <p className="mt-4 text-gray-600 text-lg">
+          <p className="mt-4 text-lg text-gray-600">
             Delight in Every Bite 🍨
           </p>
         </div>
 
         {categories.map((category) => {
           const items =
-            products?.filter(
-              (product) => product.category === category
-            ) || [];
-
-          if (items.length === 0) return null;
+            products?.filter((product) => product.category === category) ?? [];
 
           return (
-            <section
-              key={category}
-              className="mb-14"
-            >
-              <h2 className="mb-6 text-3xl font-bold text-gray-900 border-b-4 border-pink-500 inline-block pb-2">
+            <section key={category} className="mb-14">
+              <h2 className="mb-6 inline-block border-b-4 border-pink-500 pb-2 text-3xl font-bold text-gray-900">
                 {category}
               </h2>
 
@@ -71,13 +50,11 @@ console.log(
                 {items.map((product) => (
                   <div
                     key={product.id}
-                    className="rounded-2xl bg-white p-6 shadow hover:shadow-lg transition"
+                    className="rounded-2xl bg-white p-6 shadow transition hover:shadow-lg"
                   >
-                    <div className="flex justify-between items-start">
+                    <div className="flex items-start justify-between">
                       <div>
-                        <h3 className="text-xl font-bold">
-                          {product.name}
-                        </h3>
+                        <h3 className="text-xl font-bold">{product.name}</h3>
 
                         {product.description && (
                           <p className="mt-2 text-sm text-gray-500">
@@ -91,8 +68,7 @@ console.log(
                       </span>
                     </div>
 
-                    <div className="mt-4 flex gap-2 flex-wrap">
-
+                    <div className="mt-4 flex flex-wrap gap-2">
                       {product.is_sugar_free && (
                         <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">
                           Sugar Free
@@ -104,9 +80,7 @@ console.log(
                           Bestseller
                         </span>
                       )}
-
                     </div>
-
                   </div>
                 ))}
               </div>
