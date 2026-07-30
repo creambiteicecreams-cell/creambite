@@ -4,7 +4,6 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Specials from "./components/Specials";
 import SugarFree from "./components/SugarFree";
-import MenuSection from "./components/MenuSection";
 import WhyChoose from "./components/WhyChoose";
 import Gallery from "./components/Gallery";
 import VisitShop from "./components/VisitShop";
@@ -37,11 +36,6 @@ export default function Home() {
         {/* Sugar Free */}
         <section id="sugarfree">
           <SugarFree />
-        </section>
-
-        {/* Menu */}
-        <section id="menu">
-          <MenuSection />
         </section>
 
         {/* Why Choose */}
