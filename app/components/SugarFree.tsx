@@ -57,7 +57,7 @@ export default function SugarFree() {
           {/* Right */}
           <div className="rounded-[40px] overflow-hidden shadow-2xl">
             <Image
-              src="/images/hero.jpg"
+              src="/images/hero.png"
               alt="Sugar-Free Desserts"
               width={900}
               height={900}

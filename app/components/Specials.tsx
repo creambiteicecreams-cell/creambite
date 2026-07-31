@@ -6,22 +6,22 @@ import { motion } from "framer-motion";
 const specials = [
   {
     title: "Death By Chocolate",
-    image: "/images/dbc-sundae.jpg",
+    image: "/images/dbc.png",
     description: "Rich chocolate dessert loaded with premium toppings.",
   },
   {
     title: "Kesar Pista Royal",
-    image: "/images/kesar-pista.jpg",
+    image: "/images/CBC.png",
     description: "Royal saffron and pista ice cream with dry fruits.",
   },
   {
     title: "Belgian Waffle",
-    image: "/images/hero.jpg",
+    image: "/images/bf.png",
     description: "Freshly baked waffle served with delicious toppings.",
   },
   {
     title: "Sugar-Free Chocolate Bowl",
-    image: "/images/hero.jpg",
+    image: "/images/hero.png",
     description: "A guilt-free dessert for chocolate lovers.",
   },
 ];

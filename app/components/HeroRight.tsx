@@ -17,7 +17,7 @@ export default function HeroRight() {
       {/* Dessert Image */}
       <div className="relative z-10">
         <Image
-          src="/images/hero.jpg"
+          src="/images/hero.png"
           alt="Cream Bite Dessert"
           width={470}
           height={470}
