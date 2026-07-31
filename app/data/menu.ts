@@ -357,7 +357,7 @@ export const products: Product[] = [
     bestseller: true,
     veg: true,
     prices: [
-      { label: "Regular", value: 249 },
+      { label: "Regular", value: 219 },
     ],
   },
 
@@ -370,7 +370,7 @@ export const products: Product[] = [
     bestseller: true,
     veg: true,
     prices: [
-      { label: "Regular", value: 219 },
+      { label: "Regular", value: 209 },
     ],
   },
 
@@ -383,7 +383,7 @@ export const products: Product[] = [
     bestseller: true,
     veg: true,
     prices: [
-      { label: "Regular", value: 239 },
+      { label: "Regular", value: 209 },
     ],
   },
 
@@ -409,12 +409,12 @@ export const products: Product[] = [
     bestseller: true,
     veg: true,
     prices: [
-      { label: "Regular", value: 239 },
+      { label: "Regular", value: 219 },
     ],
   },
 
   {
-    id: 24,
+    id: 39,
     category: "Sundaes",
     name: "GudBud",
     description: "ice cream with fresh fruits and dryfruits loaded with rich sauce.",
@@ -422,11 +422,10 @@ export const products: Product[] = [
     bestseller: true,
     veg: true,
     prices: [
-      { label: "Regular", value: 249 },
+      { label: "Regular", value: 219 },
     ],
   },
-  
-    // ===========================
+      // ===========================
   // CHOCOLATE BOWL CAKES
   // ===========================
 
@@ -550,20 +549,7 @@ export const products: Product[] = [
     ],
   },
 
-  {
-    id: 39,
-    category: "Thick Shakes",
-    name: "Strawberry Thick Shake",
-    description: "Fresh strawberry thick shake with creamy texture.",
-    image: "/images/menu/shakes/ss.png",
-    bestseller: false,
-    veg: true,
-    prices: [
-      { label: "Regular", value: 169 },
-    ],
-  },
-
-  {
+   {
     id: 40,
     category: "Thick Shakes",
     name: "Apple Chocolate Thick Shake",
@@ -572,7 +558,7 @@ export const products: Product[] = [
     bestseller: false,
     veg: true,
     prices: [
-      { label: "Regular", value: 169 },
+      { label: "Regular", value: 159 },
     ],
   },
     // ===========================
@@ -651,13 +637,13 @@ export const products: Product[] = [
   {
     id: 46,
     category: "Sugar Free",
-    name: "Sugar Free Belgium Waffle",
+    name: "Sugar Free chocolate Waffle",
     description: "Crispy Belgian waffle with no added sugar chocolate.",
     image: "/images/menu/sugar-free/sw.png",
     bestseller: true,
     veg: true,
     prices: [
-      { label: "Regular", value: 249 },
+      { label: "Regular", value: 189 },
     ],
   },
 
