@@ -353,7 +353,7 @@ export const products: Product[] = [
     category: "Sundaes",
     name: "Death By Chocolate",
     description: "Chocolate lover's dream loaded with chocolate ice cream and rich sauce.",
-    image: "/images/menu/sundaes/dbc.png",
+    image: "/images/menu/sundaes/DBC.png",
     bestseller: true,
     veg: true,
     prices: [
