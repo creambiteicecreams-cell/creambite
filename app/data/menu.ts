@@ -259,7 +259,7 @@ export const products: Product[] = [
     category: "Belgium Waffles",
     name: "Hazelnut Chocolate Waffle",
     description: "Belgian waffle with rich hazelnut chocolate topping.",
-    image: "/images/menu/waffles/creambite-hazelnut-chocolate-belgian-waffle.png",
+    image: "/images/menu/waffles/creambite-choco-Peanut-belgian-waffle.png",
     bestseller: true,
     veg: true,
     prices: [
@@ -473,7 +473,7 @@ export const products: Product[] = [
     category: "Chocolate Bowl Cake",
     name: "White Choco Bowl",
     description: "A chocolate lover's dream with cake, brownies, chocolate sauce and ice cream.",
-    image: "/images/menu/chocolate-bowls/creambite-white-choco-bowl.png",
+    image: "/images/menu/chocolate-bowls/creambite-white-choco-cake-bowl.png",
     bestseller: true,
     veg: true,
     prices: [
