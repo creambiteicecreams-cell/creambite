@@ -1,7 +1,21 @@
-import Image from "next/image";
+"use client";
 
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 export default function SugarFree() {
-  return (
+  const router = useRouter();
+
+  const handleExplore = () => {
+    router.push("/?category=Sugar%20Free");
+
+    setTimeout(() => {
+      document.getElementById("menu")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
+  };
+    return (
     <section className="py-24 bg-[#EAF8ED]">
       <div className="max-w-7xl mx-auto px-6">
 
@@ -32,10 +46,12 @@ export default function SugarFree() {
 
             </div>
 
-            <button className="mt-10 bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-full shadow-lg transition">
-              Explore Sugar-Free Menu
-            </button>
-
+            <button
+  onClick={handleExplore}
+  className="mt-10 rounded-full bg-green-700 px-8 py-4 text-white shadow-lg transition hover:bg-green-800"
+>
+  Explore Sugar-Free Menu
+</button>
           </div>
 
           {/* Right */}

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { applyCoupon } from "../../lib/coupon";
 import { supabase } from "@/lib/supabase/client";
@@ -32,6 +33,18 @@ export default function CartPage() {
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [couponMessage, setCouponMessage] = useState("");
+  const router = useRouter();
+
+const goToMenu = () => {
+  router.push("/");
+
+  setTimeout(() => {
+    document.getElementById("menu")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 200);
+};
 
   const handleApplyCoupon = () => {
     const result = applyCoupon(couponCode, totalPrice);
@@ -128,12 +141,12 @@ Thank you for choosing Cream Bite ❤️`;
         Looks like you haven't added any delicious treats yet.
       </p>
 
-      <Link
-        href="/menu"
-        className="rounded-xl bg-pink-600 px-8 py-3 font-semibold text-white hover:bg-pink-700"
-      >
-        Browse Menu
-      </Link>
+      <button
+  onClick={goToMenu}
+  className="rounded-xl bg-pink-600 px-8 py-3 font-semibold text-white hover:bg-pink-700"
+>
+  Browse Menu
+</button>
     </div>
   );
 }
@@ -143,13 +156,12 @@ return (
 
     <div className="mb-10 flex items-center gap-3">
 
-      <Link
-        href="/menu"
-        className="rounded-lg border p-2 hover:bg-gray-100"
-      >
-        <ArrowLeft className="h-5 w-5" />
-      </Link>
-
+      <button
+  onClick={goToMenu}
+  className="rounded-lg border p-2 hover:bg-gray-100"
+>
+  <ArrowLeft className="h-5 w-5" />
+</button>
       <h1 className="text-4xl font-bold">
         Shopping Cart
       </h1>

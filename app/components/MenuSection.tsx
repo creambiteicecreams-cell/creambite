@@ -1,14 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { products } from "../data/menu";
 import MenuGrid from "./MenuGrid";
 import CategoryTabs from "./CategoryTabs";
 import SearchBar from "./SearchBar";
 
-export default function MenuSection() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+function MenuSectionContent() {
+    const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
+  const searchParams = useSearchParams();
+
+useEffect(() => {
+  const category = searchParams.get("category");
+
+  if (category) {
+    setSelectedCategory(category);
+  }
+}, [searchParams]);
 
   const filteredProducts = products.filter((product) => {
     const categoryMatch =
@@ -52,5 +62,12 @@ export default function MenuSection() {
 
       <MenuGrid products={filteredProducts} />
     </section>
+  );
+}
+export default function MenuSection() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center">Loading menu...</div>}>
+      <MenuSectionContent />
+    </Suspense>
   );
 }

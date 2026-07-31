@@ -13,8 +13,7 @@ export default function CategoryTabs({
 }: CategoryTabsProps) {
   return (
     <div className="sticky top-20 z-20 bg-white py-4 mb-8">
-      <div className="flex gap-3 overflow-x-auto scrollbar-hide">
-
+<div className="flex flex-wrap gap-3 justify-center">
         <button
           onClick={() => onSelect("All")}
           className={`px-5 py-2 rounded-full whitespace-nowrap transition
