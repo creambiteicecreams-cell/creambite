@@ -28,18 +28,19 @@ export default function Home() {
         <section id="home">
           <Hero />
         </section>
-
+      <MenuSection />
+       
+       {/* Sugar Free */}
+        <section id="sugarfree">
+          <SugarFree />
+        </section>
+       
         {/* Specials */}
         <section id="specials">
           <Specials />
         </section>
-
-        {/* Sugar Free */}
-        <section id="sugarfree">
-          <SugarFree />
-        </section>
-
-        {/* Why Choose */}
+    
+               {/* Why Choose */}
         <section id="why">
           <WhyChoose />
         </section>
@@ -64,7 +65,7 @@ export default function Home() {
         <section id="reviews">
           <Reviews />
         </section>
-        <MenuSection />
+        
 
         {/* Contact */}
         <section id="contact">

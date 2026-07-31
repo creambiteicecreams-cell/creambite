@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 const galleryImages = [
-  "/images/hero.jpg",
-   "/images/Shop.jpg",
-  "/images/hero.jpg",
-  "/images/dbc.jpg",
+  "/images/hero.png",
+   "/images/Shop.png",
+  "/images/bf.png",
+  "/images/dbc.png",
   "/images/gj.png",
-  "/images/cbc.png",
+  "/images/CBC.png",
   "/images/fd.png",
   
 ];

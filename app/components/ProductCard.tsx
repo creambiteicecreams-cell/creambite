@@ -20,19 +20,37 @@ export default function ProductCard({ product }: ProductCardProps) {
     isWishlisted,
   } = useWishlist();
 
+  const getAltText = () => {
+    const categoryMap: Record<string, string> = {
+      "Ice Cream": "Ice Cream",
+      "Belgian Waffles": "Belgian Waffle",
+      "Sundaades": "Sundae",
+      "Sundaes": "Sundae",
+      "Chocolate Bowls": "Chocolate Bowl",
+      "Thick Shakes": "Thick Shake",
+      "Cream Buns": "Cream Bun",
+      "Sugar Free": "Sugar-Free Dessert",
+    };
+
+    const category =
+      categoryMap[product.category] || product.category;
+
+    return `${product.name} ${category} at Cream Bite, Bangalore`;
+  };
+
   return (
-    <div className="group overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-md transition-all duration-300 hover:shadow-2xl">
+    <div className="group overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-md transition-all duration-300 hover:shadow-xl">
 
       {/* Image */}
-<div className="relative h-52 overflow-hidden sm:h-60 lg:h-64">
+      <div className="relative h-32 overflow-hidden sm:h-56 lg:h-64">
         <Image
           src={product.image}
-          alt={product.name}
+          alt={getAltText()}
           fill
           className="object-cover transition duration-500 group-hover:scale-110"
         />
 
-        {/* Wishlist Button */}
+        {/* Wishlist */}
         <button
           onClick={() => {
             if (isWishlisted(product.id)) {
@@ -45,10 +63,10 @@ export default function ProductCard({ product }: ProductCardProps) {
               });
             }
           }}
-          className="absolute right-4 top-4 rounded-full bg-white p-2 shadow-lg transition hover:scale-110"
+          className="absolute right-2 top-2 rounded-full bg-white p-1.5 shadow-lg transition hover:scale-110 sm:right-4 sm:top-4 sm:p-2"
         >
           <Heart
-            size={22}
+            size={18}
             className={
               isWishlisted(product.id)
                 ? "fill-red-500 text-red-500"
@@ -57,45 +75,46 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         </button>
 
-        {/* Bestseller Badge */}
+        {/* Bestseller */}
         {product.bestseller && (
-          <span className="absolute left-4 top-4 rounded-full bg-orange-600 px-4 py-1 text-xs font-semibold text-white shadow">
-🔥 Bestseller
+          <span className="absolute left-2 top-2 rounded-full bg-orange-600 px-2 py-0.5 text-[10px] font-semibold text-white shadow sm:left-4 sm:top-4 sm:px-4 sm:py-1 sm:text-xs">
+            🔥 Bestseller
           </span>
         )}
       </div>
-      {/* Sugar Free Badge */}
-{product.category === "Sugar Free" && (
-  <span className="absolute bottom-4 left-4 rounded-full bg-green-600 px-4 py-1 text-xs font-semibold text-white shadow">
-    🌿 Sugar Free
-  </span>
-)}
+
+      {/* Sugar Free */}
+      {product.category === "Sugar Free" && (
+        <span className="absolute bottom-2 left-2 rounded-full bg-green-600 px-2 py-0.5 text-[10px] font-semibold text-white shadow sm:bottom-4 sm:left-4 sm:px-4 sm:py-1 sm:text-xs">
+          🌿 Sugar Free
+        </span>
+      )}
 
       {/* Details */}
-<div className="p-4 sm:p-5 lg:p-6">
-<h3 className="text-lg font-bold sm:text-xl lg:text-2xl">
-            {product.name}
+      <div className="p-2 sm:p-5 lg:p-6">
+
+        <h3 className="line-clamp-2 text-sm font-bold leading-tight sm:text-xl lg:text-2xl">
+          {product.name}
         </h3>
 
-<p className="mt-2 text-sm text-gray-500 sm:text-base">
-            {product.description}
+        <p className="mt-1 line-clamp-2 text-[11px] text-gray-500 sm:mt-2 sm:text-base">
+          {product.description}
         </p>
 
-        <div className="mt-6 space-y-3">
+        <div className="mt-3 space-y-2 sm:mt-6 sm:space-y-3">
 
           {product.prices.map((price) => (
-
             <div
               key={price.label}
-              className="flex items-center justify-between rounded-xl bg-pink-50 px-4 py-3"
+              className="flex items-center justify-between rounded-lg bg-pink-50 px-2 py-2 sm:rounded-xl sm:px-4 sm:py-3"
             >
 
               <div>
-                <p className="font-semibold">
+                <p className="text-xs font-semibold sm:text-base">
                   {price.label}
                 </p>
 
-                <p className="font-bold text-pink-600">
+                <p className="text-sm font-bold text-pink-600 sm:text-lg">
                   ₹{price.value}
                 </p>
               </div>
@@ -109,12 +128,12 @@ export default function ProductCard({ product }: ProductCardProps) {
                     image: product.image,
                   })
                 }
-                className="rounded-xl bg-pink-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-pink-700 sm:px-5"              >
+                className="rounded-lg bg-pink-600 px-2 py-1 text-[11px] font-semibold text-white transition hover:bg-pink-700 sm:rounded-xl sm:px-5 sm:py-2 sm:text-sm"
+              >
                 + Add
               </button>
 
             </div>
-
           ))}
 
         </div>
