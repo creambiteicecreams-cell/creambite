@@ -412,6 +412,20 @@ export const products: Product[] = [
       { label: "Regular", value: 239 },
     ],
   },
+
+  {
+    id: 24,
+    category: "Sundaes",
+    name: "GudBud",
+    description: "ice cream with fresh fruits and dryfruits loaded with rich sauce.",
+    image: "/images/menu/sundaes/gud.png",
+    bestseller: true,
+    veg: true,
+    prices: [
+      { label: "Regular", value: 249 },
+    ],
+  },
+  
     // ===========================
   // CHOCOLATE BOWL CAKES
   // ===========================

@@ -2,11 +2,13 @@ import Image from "next/image";
 
 const galleryImages = [
   "/images/hero.jpg",
-  "/images/dbc-sundae.jpg",
-  "/images/kesar-pista.jpg",
-  "/images/Shop.jpg",
+   "/images/Shop.jpg",
   "/images/hero.jpg",
-  "/images/dbc-sundae.jpg",
+  "/images/dbc.jpg",
+  "/images/gj.png",
+  "/images/cbc.png",
+  "/images/fd.png",
+  
 ];
 
 export default function Gallery() {
