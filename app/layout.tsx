@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import LocalBusinessSchema from "./components/seo/LocalBusinessSchema";
-
+import { AuthProvider } from "@/app/context/AuthContext";
 import "./globals.css";
 
 import { CartProvider } from "./context/CartContext";
@@ -133,37 +133,40 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-screen bg-white">
-        <LocalBusinessSchema />
-        <WishlistProvider>
-          <CartProvider>
-            {children}
+        <AuthProvider>
+          <WishlistProvider>
+            <CartProvider>
+              <LocalBusinessSchema />
 
-            <Toaster
-              position="top-right"
-              reverseOrder={false}
-              toastOptions={{
-                duration: 3000,
-                style: {
-                  borderRadius: "12px",
-                  background: "#222",
-                  color: "#fff",
-                },
-                success: {
+              {children}
+
+              <Toaster
+                position="top-right"
+                reverseOrder={false}
+                toastOptions={{
+                  duration: 3000,
                   style: {
-                    background: "#16a34a",
+                    borderRadius: "12px",
+                    background: "#222",
                     color: "#fff",
                   },
-                },
-                error: {
-                  style: {
-                    background: "#dc2626",
-                    color: "#fff",
+                  success: {
+                    style: {
+                      background: "#16a34a",
+                      color: "#fff",
+                    },
                   },
-                },
-              }}
-            />
-          </CartProvider>
-        </WishlistProvider>
+                  error: {
+                    style: {
+                      background: "#dc2626",
+                      color: "#fff",
+                    },
+                  },
+                }}
+              />
+            </CartProvider>
+          </WishlistProvider>
+        </AuthProvider>
       </body>
     </html>
   );

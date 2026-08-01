@@ -10,7 +10,7 @@ export default function VisitShop() {
           {/* Shop Image */}
           <div className="overflow-hidden rounded-[40px] shadow-2xl">
             <Image
-              src="/images/Shop.jpg"
+              src="/images/creambite-shop.png"
               alt="Cream Bite Ice Cream Parlour"
               width={900}
               height={700}

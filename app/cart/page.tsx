@@ -1,11 +1,14 @@
 "use client";
 
+import WhatsAppConfirmationModal from "../components/WhatsAppConfirmationModal";
+import toast from "react-hot-toast";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { applyCoupon } from "../../lib/coupon";
 import { supabase } from "@/lib/supabase/client";
+import CheckoutChoiceModal from "../components/CheckoutChoiceModal";
 import {
   Minus,
   Plus,
@@ -19,17 +22,19 @@ import { CustomerInfo } from "../types/customer";
 import { useCart } from "../context/CartContext";
 
 export default function CartPage() {
-  const {
-    cart,
-    increaseQty,
-    decreaseQty,
-    removeFromCart,
-    totalItems,
-    totalPrice,
-  } = useCart();
+ const {
+  cart,
+  increaseQty,
+  decreaseQty,
+  removeFromCart,
+  clearCart,
+  totalItems,
+  totalPrice,
+} = useCart();
 
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
-
+const [checkoutChoiceOpen, setCheckoutChoiceOpen] = useState(false);
+const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
+const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [couponMessage, setCouponMessage] = useState("");
@@ -121,12 +126,14 @@ ${items}
 
 Thank you for choosing Cream Bite ❤️`;
 
-    window.open(
-      `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
+ window.open(
+  `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+  "_blank"
+);
 
-    setCheckoutOpen(false);
+setCheckoutOpen(false);
+
+setShowWhatsAppModal(true);
   };
   if (cart.length === 0) {
   return (
@@ -342,22 +349,53 @@ return (
         </div>
 
         <button
-          onClick={() => setCheckoutOpen(true)}
-          className="w-full rounded-xl bg-green-600 py-4 text-lg font-semibold text-white hover:bg-green-700"
-        >
-          Proceed to WhatsApp
-        </button>
-
+  onClick={() => {
+        setCheckoutChoiceOpen(true);
+  }}
+  className="w-full rounded-xl bg-green-600 py-4 text-lg font-semibold text-white hover:bg-green-700"
+>
+  Proceed to WhatsApp
+</button>
       </div>
 
     </div>
-
+<CheckoutChoiceModal
+  open={checkoutChoiceOpen}
+  onClose={() => setCheckoutChoiceOpen(false)}
+  onGuest={() => {
+    setCheckoutChoiceOpen(false);
+    setCheckoutOpen(true);
+  }}
+  onLogin={() => {
+    setCheckoutChoiceOpen(false);
+    router.push("/login");
+  }}
+/>
     <CheckoutModal
       open={checkoutOpen}
       onClose={() => setCheckoutOpen(false)}
       onConfirm={handleWhatsAppCheckout}
     />
+<WhatsAppConfirmationModal
+  open={showWhatsAppModal}
+  onClose={() => setShowWhatsAppModal(false)}
+  onConfirm={() => {
+    clearCart();
 
+    setShowWhatsAppModal(false);
+
+    toast.success(
+      "🎉 Thank you! Your order has been received."
+    );
+
+    router.push("/");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }}
+/>
   </div>
 );
 }
